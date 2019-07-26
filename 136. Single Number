@@ -1,0 +1,44 @@
+##### My code #####
+class Solution(object):
+
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        lst = []
+        
+        if len(nums) <= 2:
+            raise Exception("List must have at least 3 numbers")
+
+        for i in set(nums):
+            occur = nums.count(i)
+            if occur >2:
+                # print(i + "2")
+                raise Exception("Numbers can only repeat twice at most")
+                
+            if occur == 1:
+                lst.append(i)
+                
+                print(lst)
+                
+        if len(lst) > 1:
+            raise Exception("Only one number can be single")
+        else:
+            return lst.pop(0)
+            
+##### Solution #####
+
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        no_duplicate_list = []
+        for i in nums:
+            if i not in no_duplicate_list:
+                no_duplicate_list.append(i)
+            else:
+                no_duplicate_list.remove(i)
+        return no_duplicate_list.pop()
