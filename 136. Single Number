@@ -7,25 +7,14 @@ class Solution(object):
         :rtype: int
         """
         lst = []
-        
-        if len(nums) <= 2:
-            raise Exception("List must have at least 3 numbers")
 
-        for i in set(nums):
-            occur = nums.count(i)
-            if occur >2:
-                # print(i + "2")
-                raise Exception("Numbers can only repeat twice at most")
-                
-            if occur == 1:
+        for i in nums:
+            if i not in lst:
                 lst.append(i)
-                
-                print(lst)
-                
-        if len(lst) > 1:
-            raise Exception("Only one number can be single")
-        else:
-            return lst.pop(0)
+            else:
+                lst.remove(i)
+
+        return lst.pop(0)
             
 ##### Solution #####
 
